@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+@import "./styles/fonts.css";
+
+@theme {
+  --font-instrument: 'Instrument Serif', serif;
+  --font-barlow: 'Barlow', sans-serif;
+  
+  --color-glass-bg: rgba(255, 255, 255, 0.03);
+  --color-glass-border: rgba(255, 255, 255, 0.08);
+
+  --animate-blur-intro: blur-intro 1s ease-out forwards;
+  --animate-glow-pulse: glow-pulse 4s ease-in-out infinite alternate;
+}
+
+@layer utilities {
+  .font-instrument {
+    font-family: var(--font-instrument);
+  }
+  .font-barlow {
+    font-family: var(--font-barlow);
+  }
+  
+  .glass-panel {
+    background-color: var(--color-glass-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--color-glass-border);
+  }
+  
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+}
+
+@layer base {
+  body {
+    font-family: var(--font-barlow);
+    background-color: #000;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    /* Smooth scroll for anchor tags */
+    scroll-behavior: smooth;
+    /* Optimize text rendering for dark mode */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Custom animation keyframes */
+@keyframes blur-intro {
+  0% {
+    filter: blur(10px);
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    filter: blur(0);
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glow-pulse {
+  0% {
+    opacity: 0.5;
+    transform: scale(0.9) translate(-50%, -50%);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.1) translate(-50%, -50%);
+  }
+}
