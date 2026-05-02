@@ -201,7 +201,7 @@ export default function AboutUsSection() {
                 whileHover={{ scale: 1.03, transition: { duration: 0.3 } }}
               >
                 <img
-                  src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2940&auto=format&fit=crop"
+                  src="/skjsc.png"
                   alt="Developer Workstation"
                   className="w-full h-full min-h-[400px] object-cover mix-blend-luminosity hover:mix-blend-normal transition-all duration-700"
                 />
@@ -212,7 +212,7 @@ export default function AboutUsSection() {
                   transition={{ duration: 0.8, delay: 0.9 }}
                 >
                   <motion.a
-                    href="https://satyamkrjha.vercel.app/"
+                    href="https://satyamseno.netlify.app/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="bg-white text-black px-6 py-3 rounded-full flex items-center gap-2 text-sm font-medium hover:bg-emerald-50 hover:text-emerald-900 transition-colors cursor-pointer z-20 shadow-[0_0_20px_rgba(255,255,255,0.2)]"
