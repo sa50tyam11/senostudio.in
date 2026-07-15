@@ -6,11 +6,11 @@ import { Navbar } from '../components/Navbar';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://senostudio.in'),
-  title: 'SENO Studio | Digital Engineering',
-  description: 'Web design & engineering for fast-moving founders. We do not just build websites. We engineer digital empires.',
+  title: 'SENO Studio | Best Web Development Company in Bihar',
+  description: 'Startup website development, AI automation, digital marketing, and SEO friendly website design services near me. SENO Studio builds high-performance websites.',
   openGraph: {
-    title: 'SENO Studio',
-    description: 'Web design & engineering for fast-moving founders.',
+    title: 'SENO Studio | Best Web Development Company in Bihar',
+    description: 'Startup website development, AI automation, digital marketing, and SEO friendly website design services.',
     url: 'https://senostudio.in',
     siteName: 'SENO Studio',
     images: [

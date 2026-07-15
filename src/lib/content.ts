@@ -57,7 +57,7 @@ export const hero = {
   eyebrow: "/ SENO STUDIO",
   headline: "Let's put a charge through your next idea.",
   subtext:
-    "SENO Studio designs and engineers fast, precise web experiences for founders and teams who don't want to wait for their website to catch up to their ambition.",
+    "SENO Studio is the best web development company in Bihar. We specialize in AI automation, startup website development, and creating SEO friendly web experiences for founders.",
   contact: "senowebstudio@gmail.com",
 };
 
@@ -73,16 +73,16 @@ export const servicesSectionMeta = {
 export const services: ServiceCard[] = [
   {
     id: "SIG_UI_01",
-    name: "Interface Engineering",
+    name: "Website Design Services Near Me",
     description:
-      "Pixel-precise Next.js interfaces built for fluid motion and layout fidelity, not just responsive breakpoints.",
+      "Website redesign services, logo branding, and SEO friendly website development that rank on Google.",
     contactParam: "SIG_UI_01",
   },
   {
     id: "SIG_FS_02",
-    name: "Full-Stack Builds",
+    name: "AI Automation & Digital Marketing",
     description:
-      "End-to-end apps pairing React frontends with Supabase-backed, production-grade backends.",
+      "End-to-end AI automation solutions and data-driven digital marketing strategies to scale your business.",
     contactParam: "SIG_FS_02",
   },
   {
@@ -94,9 +94,9 @@ export const services: ServiceCard[] = [
   },
   {
     id: "SIG_MVP_04",
-    name: "MVP Sprints",
+    name: "Startup Website Development",
     description:
-      "Fast, focused builds that take a founder's idea from sketch to shippable product.",
+      "Fast, focused startup website development that takes a founder's idea from sketch to shippable product.",
     contactParam: "SIG_MVP_04",
   },
   {
@@ -108,9 +108,9 @@ export const services: ServiceCard[] = [
   },
   {
     id: "SIG_OPT_06",
-    name: "Performance Tuning",
+    name: "Website Performance Optimization",
     description:
-      "Core Web Vitals audits, load-time surgery, and technical SEO that compounds traffic over time.",
+      "Core Web Vitals audits, website performance optimization, and technical SEO that compounds traffic over time.",
     contactParam: "SIG_OPT_06",
   },
 ];
@@ -293,7 +293,7 @@ export const closingCta = {
 // ─── Marquee ticker (Work page) ───────────────────────────────────
 
 export const MARQUEE_TEXT =
-  "SENO STUDIO · MUZAFFARPUR, BIHAR ✦ FULL-STACK WEB DESIGN ✦ BRAND SYSTEMS ✦ MVP ENGINEERING ✦ HIGH-SIGNAL BUILDS ✦";
+  "SENO STUDIO ✦ BEST WEB DEVELOPMENT COMPANY IN BIHAR ✦ AI AUTOMATION ✦ STARTUP WEBSITE DEVELOPMENT ✦ DIGITAL MARKETING ✦ LOGO BRANDING ✦ WEBSITE REDESIGN SERVICES ✦ WEBSITE DESIGN SERVICES NEAR ME ✦";
 
 // ─── Nav links ────────────────────────────────────────────────────
 
