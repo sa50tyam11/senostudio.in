@@ -1,0 +1,244 @@
+@import "tailwindcss";
+
+@import "../styles/fonts.css";
+@import "../styles/theme.css";
+
+/* ─── SENO Design Tokens ─────────────────────────────────── */
+@theme {
+  /* Fonts */
+  --font-display: 'Instrument Serif', serif;
+  --font-body: 'Inter', sans-serif;
+  --font-instrument: 'Instrument Serif', serif;
+  --font-barlow: 'Barlow', sans-serif;
+
+  /* Color palette — Electric / Signal */
+  --color-electric-white: #FFFFFF;
+  --color-electric-indigo: #6C63FF;
+  --color-lime-green: #84cc16;
+
+  --color-ink: #0A0A0A;
+  --color-muted: #737373;
+  --color-surface: #FAFAFA;
+
+  --color-dark-text: #FFFFFF;
+  --color-dark-muted: #A3A3A3;
+
+  /* Glassmorphism */
+  --color-glass-bg: rgba(255, 255, 255, 0.8);
+  --color-glass-border: rgba(0, 0, 0, 0.05);
+
+  /* Existing animations */
+  --animate-blur-intro: blur-intro 1s ease-out forwards;
+  --animate-glow-pulse: glow-pulse 4s ease-in-out infinite alternate;
+
+  /* Marquee animation */
+  --animate-marquee: marquee 28s linear infinite;
+}
+
+/* ─── Utility layers ─────────────────────────────────────── */
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-body {
+    font-family: var(--font-body);
+  }
+
+  .font-instrument {
+    font-family: var(--font-instrument);
+  }
+
+  .font-barlow {
+    font-family: var(--font-barlow);
+  }
+
+  /* Micro-label — eyebrow tags, ID badges */
+  .label-micro {
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+  }
+
+  .label-micro-primary {
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-electric-indigo);
+  }
+
+  .glass-panel {
+    background-color: var(--color-glass-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--color-glass-border);
+  }
+
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+
+  /* Marquee track */
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: var(--animate-marquee);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track {
+      animation: none;
+    }
+  }
+}
+
+/* ─── Base ───────────────────────────────────────────────── */
+@layer base {
+  :root {
+    --color-electric-white: #FFFFFF;
+    --color-electric-indigo: #6C63FF;
+    --color-lime-green: #84cc16;
+    --color-ink: #0A0A0A;
+    --color-muted: #737373;
+    --color-surface: #FAFAFA;
+    --color-dark-text: #FFFFFF;
+    --color-dark-muted: #A3A3A3;
+    
+    /* Legacy aliases for backwards compatibility */
+    --color-violet: var(--color-electric-indigo);
+    --color-ivory: var(--color-electric-white);
+    --color-gold: var(--color-lime-green);
+    --color-obsidian: var(--color-ink);
+    --color-sand: var(--color-surface);
+    --color-glow: var(--color-lime-green);
+    --color-primary: var(--color-electric-indigo);
+    --color-accent: var(--color-lime-green);
+    --color-ink-muted: var(--color-muted);
+
+    --border-light: rgba(0, 0, 0, 0.05);
+    --border-dark: rgba(255, 255, 255, 0.1);
+  }
+
+  body {
+    font-family: var(--font-body);
+    background-color: var(--color-electric-white);
+    color: var(--color-ink);
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Scrollbar — thin, brand-tinted */
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-electric-indigo);
+    border-radius: 2px;
+  }
+}
+
+/* ─── Keyframes ──────────────────────────────────────────── */
+@keyframes blur-intro {
+  0% {
+    filter: blur(10px);
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  100% {
+    filter: blur(0);
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glow-pulse {
+  0% {
+    opacity: 0.5;
+    transform: scale(0.9) translate(-50%, -50%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1.1) translate(-50%, -50%);
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0%);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Signal-line dot pulse (static glow for reduced-motion contexts) */
+@keyframes dot-pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.4;
+    transform: scale(0.7);
+  }
+}
+
+/* ─── Custom Styles for Features Section ─────────────────── */
+.liquid-glass {
+  background: rgba(255, 255, 255, 0.01);
+  background-blend-mode: luminosity;
+  backdrop-filter: blur(4px);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+.liquid-glass::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.4px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.15) 20%, rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%, rgba(255,255,255,0.15) 80%, rgba(255,255,255,0.45) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+@keyframes marquee-left { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@keyframes marquee-right { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+.animate-marquee-left { animation: marquee-left 22s linear infinite; }
+.animate-marquee-right { animation: marquee-right 26s linear infinite; }
+
+.noise-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.55;
+  mix-blend-mode: soft-light;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix type='matrix' values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  background-size: 240px 240px;
+}
