@@ -1,83 +1,144 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+'use client';
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { Bean, Droplet, Sprout, TreeDeciduous } from 'lucide-react';
 
 export function ProcessSection() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"]
+  });
+
+  // The horizontal line progress
+  const lineWidth = useTransform(scrollYProgress, [0, 0.8], ["0%", "100%"]);
+
   const steps = [
-    { num: '01', title: 'Strategic Discovery', desc: 'We initiate with a comprehensive forensic breakdown of your business objectives, technical constraints, and competitive landscape to engineer a bulletproof architecture.' },
-    { num: '02', title: 'Visual Architecture', desc: 'Our design and engineering core crafts high-fidelity, luxury-standard interfaces mapped meticulously to user psychology and rigorous conversion metrics.' },
-    { num: '03', title: 'Deployment & Scale', desc: 'We construct your digital infrastructure using next-generation frontend frameworks and secure, rapidly scalable backend ecosystems.' }
+    {
+      num: '01',
+      title: 'Discovery',
+      desc: 'Understanding your business, goals, and users.',
+      icon: <Bean className="w-5 h-5 text-[#2A4737]" strokeWidth={1.5} />,
+      progressStart: 0.05,
+      progressEnd: 0.25
+    },
+    {
+      num: '02',
+      title: 'Strategy',
+      desc: 'Planning architecture and tech stack.',
+      icon: <Droplet className="w-5 h-5 text-[#2A4737]" strokeWidth={1.5} />,
+      progressStart: 0.25,
+      progressEnd: 0.45
+    },
+    {
+      num: '03',
+      title: 'Development',
+      desc: 'Building scalable digital systems.',
+      icon: <Sprout className="w-5 h-5 text-[#2A4737]" strokeWidth={1.5} />,
+      progressStart: 0.45,
+      progressEnd: 0.65
+    },
+    {
+      num: '04',
+      title: 'Launch',
+      desc: 'Deployment, SEO, and iteration.',
+      icon: <TreeDeciduous className="w-5 h-5 text-[#2A4737]" strokeWidth={1.5} />,
+      progressStart: 0.65,
+      progressEnd: 0.85
+    }
   ];
 
   return (
-    <section id="process" className="py-24 md:py-40 relative border-t border-white/5 bg-transparent overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid md:grid-cols-12 gap-12 md:gap-24 relative z-10">
+    <section 
+      ref={containerRef} 
+      className="relative h-[400vh] bg-[#FDFBF7]" 
+      id="process"
+    >
+      <div className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden pt-20">
+        
+        {/* Header */}
+        <div className="text-center mb-24 md:mb-32 relative z-10 px-6">
+          <p className="text-[#3E6150] text-xs font-bold tracking-[0.3em] uppercase mb-6 flex items-center justify-center gap-3">
+            <span className="text-[#3E6150] font-light">/</span> METHODOLOGY
+          </p>
+          <h2 className="text-5xl md:text-7xl lg:text-[5.5rem] font-instrument text-[#1C362B] tracking-tight">
+            From Concept to System.
+          </h2>
+        </div>
+
+        {/* Timeline Container */}
+        <div className="max-w-7xl mx-auto w-full px-6 md:px-12 relative">
           
-          {/* Left Column: Sticky Title */}
-          <div className="md:col-span-5 lg:col-span-5 relative">
-            <div className="md:sticky md:top-40 mb-4 md:mb-0">
-               <motion.span 
-                 initial={{ opacity: 0 }}
-                 whileInView={{ opacity: 1 }}
-                 viewport={{ once: true }}
-                 className="text-emerald-400 font-medium tracking-widest text-sm mb-4 flex items-center gap-4 uppercase"
-               >
-                 <span className="w-12 h-[1px] bg-emerald-500/50 block"></span>
-                 Our Methodology
-               </motion.span>
-               <motion.h2 
-                 initial={{ opacity: 0, y: 30 }}
-                 whileInView={{ opacity: 1, y: 0 }}
-                 viewport={{ once: true }}
-                 className="text-5xl md:text-7xl lg:text-8xl font-instrument italic leading-none drop-shadow-xl"
-               >
-                 Precision <br/> Engineering.
-               </motion.h2>
-               <motion.p
-                 initial={{ opacity: 0 }}
-                 whileInView={{ opacity: 1 }}
-                 viewport={{ once: true }}
-                 className="mt-8 text-gray-400 font-light max-w-sm text-lg leading-relaxed hidden md:block"
-               >
-                 We refuse to rely on templates. Every project is a bespoke orchestration of ruthless performance and uncompromising aesthetic value.
-               </motion.p>
-            </div>
-          </div>
+          {/* Background Line (Desktop only) */}
+          <div className="hidden md:block absolute top-8 left-[64px] w-[calc(75%-16px)] h-[1px] bg-[#E5E3DB]" />
+          
+          {/* Animated Green Line (Desktop only) */}
+          <motion.div 
+            className="hidden md:block absolute top-8 left-[64px] h-[1px] bg-[#3E6150] origin-left z-0"
+            style={{ width: lineWidth, maxWidth: 'calc(75% - 16px)' }}
+          />
 
-          {/* Right Column: Scrolling Process List */}
-          <div className="md:col-span-7 lg:col-span-7 flex flex-col">
+          {/* Steps Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8">
             {steps.map((step, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-10%' }}
-                transition={{ delay: idx * 0.1, duration: 0.8 }}
-                className="group relative py-12 md:py-16 border-t border-white/10 hover:border-emerald-500/40 transition-colors duration-500"
-              >
-                {/* Hover Line Highlight */}
-                <div className="absolute top-0 left-0 w-0 h-[1px] bg-emerald-400 group-hover:w-full transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] z-20"></div>
-
-                {/* Huge Background Number Revealed on Hover */}
-                <div className="absolute right-0 top-1/2 -translate-y-1/2 text-[10rem] md:text-[14rem] font-instrument italic leading-none text-emerald-500/[0.00] group-hover:text-emerald-500/[0.08] transition-colors duration-700 pointer-events-none select-none mix-blend-screen">
-                   {step.num}
-                </div>
-
-                <div className="relative z-10 pr-12 md:pr-0">
-                  <span className="text-emerald-400/80 font-medium tracking-widest text-sm mb-4 block group-hover:text-emerald-400 transition-colors duration-300">PHASE {step.num}</span>
-                  <h3 className="text-3xl md:text-4xl lg:text-5xl font-instrument italic mb-6 text-white group-hover:text-emerald-50 transition-colors duration-300">
-                    {step.title}
-                  </h3>
-                  <p className="text-gray-400 text-base md:text-lg leading-relaxed font-light max-w-xl group-hover:text-gray-300 transition-colors duration-300">
-                    {step.desc}
-                  </p>
-                </div>
-              </motion.div>
+              <StepComponent 
+                key={idx} 
+                step={step} 
+                scrollYProgress={scrollYProgress} 
+              />
             ))}
           </div>
-
         </div>
       </div>
     </section>
+  );
+}
+
+function StepComponent({ step, scrollYProgress }: any) {
+  const { progressStart, progressEnd } = step;
+
+  // Icon animations
+  const iconOpacity = useTransform(scrollYProgress, [progressStart, progressEnd], [0.3, 1]);
+  const iconScale = useTransform(scrollYProgress, [progressStart, progressEnd], [0.8, 1]);
+  const iconBorder = useTransform(scrollYProgress, [progressStart, progressEnd], ["rgba(229, 227, 219, 1)", "rgba(62, 97, 80, 0.4)"]);
+  const iconBg = useTransform(scrollYProgress, [progressStart, progressEnd], ["rgba(253, 251, 247, 1)", "rgba(253, 251, 247, 1)"]); // Keep white
+
+  // Content animations
+  const contentOpacity = useTransform(scrollYProgress, [progressStart, progressEnd], [0, 1]);
+  const contentY = useTransform(scrollYProgress, [progressStart, progressEnd], [20, 0]);
+
+  return (
+    <div className="relative flex flex-col items-center md:items-start">
+      {/* Icon Circle */}
+      <motion.div 
+        className="w-16 h-16 rounded-full flex items-center justify-center relative z-10 mb-8 border shadow-sm bg-white"
+        style={{ 
+          opacity: iconOpacity,
+          scale: iconScale,
+          borderColor: iconBorder,
+          backgroundColor: iconBg
+        }}
+      >
+        {step.icon}
+      </motion.div>
+
+      {/* Content */}
+      <motion.div 
+        style={{ 
+          opacity: contentOpacity, 
+          y: contentY 
+        }}
+        className="text-center md:text-left pr-0 md:pr-4"
+      >
+        <div className="flex items-center justify-center md:justify-start gap-3 mb-3">
+          <span className="text-[#3E6150]/40 text-xl font-instrument italic">{step.num}</span>
+          <h3 className="text-[#1C362B] text-3xl md:text-2xl lg:text-3xl font-instrument">{step.title}</h3>
+        </div>
+        <p className="text-gray-500 text-sm leading-relaxed max-w-[260px] mx-auto md:mx-0">
+          {step.desc}
+        </p>
+      </motion.div>
+    </div>
   );
 }

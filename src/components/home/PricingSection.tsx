@@ -60,7 +60,7 @@ export const PricingSection: React.FC = () => {
   const router = useRouter();
 
   return (
-    <section className="py-24 md:py-32 bg-[var(--color-surface)] relative border-t border-[var(--border-light)]">
+    <section className="py-24 md:py-32 bg-gradient-to-br from-[#FFF9F2] via-[#F6F7F0] to-[#EAF2EC] relative border-t border-[var(--border-light)]">
       <div className="container mx-auto px-6 md:px-12">
         <SectionHeader
           eyebrow="/ Power Tiers"

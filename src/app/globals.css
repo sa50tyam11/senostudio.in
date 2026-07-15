@@ -133,23 +133,10 @@
     color: var(--color-ink);
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-  }
-
-  /* Scrollbar — thin, brand-tinted */
-  ::-webkit-scrollbar {
-    width: 4px;
-  }
-
-  ::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: var(--color-electric-indigo);
-    border-radius: 2px;
   }
 }
 

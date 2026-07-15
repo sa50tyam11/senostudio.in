@@ -22,10 +22,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 // ─── Projects data ─────────────────────────────────────────────────
 const PROJECTS = [
-  { year: '2024', title: 'Founder OS Dashboard', type: 'Full-Stack',         href: '/work' },
-  { year: '2024', title: 'Signal Agency Site',   type: 'Interface Design',    href: '/work' },
-  { year: '2024', title: 'Volt Commerce MVP',    type: 'MVP Sprint',           href: '/work' },
-  { year: '2023', title: 'Halo Wear',            type: 'Backend & Auth',       href: '/work' },
+  { year: '2024', title: 'Founder OS Dashboard', type: 'Full-Stack', href: '/work' },
+  { year: '2024', title: 'Signal Agency Site', type: 'Interface Design', href: '/work' },
+  { year: '2024', title: 'Volt Commerce MVP', type: 'MVP Sprint', href: '/work' },
+  { year: '2023', title: 'Halo Wear', type: 'Backend & Auth', href: '/work' },
 ];
 
 // ─── Tech icons ────────────────────────────────────────────────────

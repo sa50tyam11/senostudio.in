@@ -1,107 +1,125 @@
 'use client';
 
-import React from 'react';
-import { motion } from 'framer-motion';
-import { SectionHeader } from '../shared/SectionHeader';
-import { useRouter } from 'next/navigation';
+import React, { useState, useRef } from 'react';
+import { motion, useMotionValue, useSpring, AnimatePresence } from 'framer-motion';
 
 const services = [
   {
-    id: 'SIG_UI_01',
     name: 'Interface Engineering',
-    description: 'Pixel-precise Next.js interfaces built for fluid motion and layout fidelity, not just responsive breakpoints.',
+    description: 'Pixel-precise Next.js interfaces built for fluid motion & layout fidelity.',
+    image: 'https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=600&auto=format&fit=crop'
   },
   {
-    id: 'SIG_FS_02',
     name: 'Full-Stack Builds',
-    description: 'End-to-end apps pairing React frontends with Supabase-backed, production-grade backends.',
+    description: 'End-to-end apps pairing React frontends with Supabase-backed backends.',
+    image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=600&auto=format&fit=crop'
   },
   {
-    id: 'SIG_IX_03',
-    name: 'Motion & Micro-Interaction',
-    description: 'Framer Motion-driven interactions engineered to make every click feel intentional.',
+    name: 'Motion & Visual',
+    description: 'Framer Motion-driven interactions engineered for intentional experiences.',
+    image: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=600&auto=format&fit=crop'
   },
   {
-    id: 'SIG_MVP_04',
     name: 'MVP Sprints',
-    description: 'Fast, focused builds that take a founder\'s idea from sketch to shippable product.',
+    description: 'Fast, focused builds that take ideas from sketch to shippable product.',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=600&auto=format&fit=crop'
   },
   {
-    id: 'SIG_API_05',
-    name: 'Backend & Auth Systems',
-    description: 'Clerk-secured, Supabase-powered systems built for real users from day one, not prototypes.',
-  },
-  {
-    id: 'SIG_OPT_06',
-    name: 'Performance Tuning',
-    description: 'Core Web Vitals audits, load-time surgery, and technical SEO that compounds traffic over time.',
+    name: 'Backend & Systems',
+    description: 'Secure, scalable auth & database systems built for real users from day one.',
+    image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=600&auto=format&fit=crop'
   },
 ];
 
 export const ServicesSection: React.FC = () => {
-  const router = useRouter();
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.1 },
-    },
-  };
+  // Mouse position for the floating image
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
 
-  const cardVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
+  // Smooth springs for the image
+  const springConfig = { damping: 25, stiffness: 200, mass: 0.5 };
+  const x = useSpring(mouseX, springConfig);
+  const y = useSpring(mouseY, springConfig);
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    // Center the image on the cursor (width 260px, height 360px)
+    mouseX.set(e.clientX - 130);
+    mouseY.set(e.clientY - 180);
   };
 
   return (
-    <section className="py-24 md:py-32 bg-[var(--color-electric-white)] relative border-t border-[var(--border-light)]">
-      <div className="container mx-auto px-6 md:px-12">
-        <SectionHeader
-          eyebrow="/ Signal Lines"
-          title="What We Transmit."
-          subtext="Every engagement runs on the same current — clarity in, precision out."
-          className="mb-16"
-        />
+    <section 
+      className="py-24 md:py-32 bg-gradient-to-br from-[#FFF9F2] via-[#F6F7F0] to-[#EAF2EC] relative border-t border-[var(--border-light)] overflow-hidden"
+      onMouseMove={handleMouseMove}
+      ref={containerRef}
+    >
+      {/* Floating Image Preview */}
+      <AnimatePresence>
+        {hoveredIndex !== null && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
+            animate={{ opacity: 1, scale: 1, rotate: 0 }}
+            exit={{ opacity: 0, scale: 0.8, rotate: 5 }}
+            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            style={{ x, y }}
+            className="fixed top-0 left-0 w-[260px] h-[360px] pointer-events-none z-50 rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.3)] hidden md:block"
+          >
+            <img 
+              src={services[hoveredIndex].image} 
+              alt={services[hoveredIndex].name}
+              className="w-full h-full object-cover"
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-50px' }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-        >
-          {services.map((service) => (
+      <div className="container mx-auto px-6 md:px-12 max-w-6xl">
+        <div className="mb-20">
+           <h2 className="text-4xl md:text-5xl lg:text-6xl font-light tracking-tight text-[#0a0a0a]">
+             Engineering Excellence
+           </h2>
+        </div>
+
+        <div className="w-full flex flex-col border-t border-black/20">
+          {services.map((service, index) => (
             <motion.div
-              key={service.id}
-              variants={cardVariants}
-              whileHover={{ y: -6, transition: { duration: 0.2 } }}
-              onClick={() => router.push(`/contact?service=${service.id}`)}
-              className="group cursor-pointer p-8 rounded-2xl bg-[var(--color-surface)] border border-[var(--border-light)] hover:border-[var(--color-lime-green)] shadow-sm hover:shadow-[0_8px_30px_rgb(108,99,255,0.12)] transition-all flex flex-col justify-between min-h-[240px]"
+              key={index}
+              className="group border-b border-black/20 flex flex-col md:flex-row justify-between items-start md:items-center py-10 md:py-14 cursor-pointer relative"
+              onMouseEnter={() => setHoveredIndex(index)}
+              onMouseLeave={() => setHoveredIndex(null)}
+              initial="initial"
+              whileHover="hover"
             >
-              <div>
-                <div className="flex items-center justify-between mb-6">
-                  <span className="font-body text-xs tracking-widest text-[var(--color-electric-indigo)] font-bold uppercase">
-                    {service.id}
-                  </span>
-                  <div className="w-2 h-2 rounded-full bg-[var(--color-electric-indigo)] group-hover:bg-[var(--color-lime-green)] transition-colors" />
-                </div>
-                <h3 className="font-body text-xl font-semibold text-[var(--color-ink)] mb-3 group-hover:text-[var(--color-electric-indigo)] transition-colors">
+              {/* Title with Roll-up effect */}
+              <div className="relative overflow-hidden h-[40px] md:h-[50px] flex items-center md:w-1/2">
+                <motion.div 
+                  className="absolute inset-0 flex items-center text-3xl md:text-4xl font-extrabold tracking-tight text-black"
+                  variants={{ initial: { y: 0 }, hover: { y: "-100%" } }}
+                  transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                >
                   {service.name}
-                </h3>
-                <p className="font-body text-[var(--color-muted)] text-sm leading-relaxed">
+                </motion.div>
+                <motion.div 
+                  className="absolute inset-0 flex items-center text-3xl md:text-4xl font-extrabold tracking-tight text-black"
+                  variants={{ initial: { y: "100%" }, hover: { y: 0 } }}
+                  transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                >
+                  {service.name}
+                </motion.div>
+              </div>
+
+              {/* Description */}
+              <div className="mt-4 md:mt-0 md:w-1/2 md:text-right">
+                <p className="text-[#333] text-lg md:text-xl font-normal md:ml-auto">
                   {service.description}
                 </p>
               </div>
-              <div className="mt-8 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity transform translate-x-[-10px] group-hover:translate-x-0">
-                <span className="text-xs font-bold tracking-wider uppercase text-[var(--color-electric-indigo)]">Inquire</span>
-                <svg width="14" height="14" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M1 6H11M11 6L6 1M11 6L6 11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[var(--color-electric-indigo)]"/>
-                </svg>
-              </div>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
