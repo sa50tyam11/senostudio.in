@@ -35,6 +35,9 @@ export const metadata: Metadata = {
     shortcut: '/seno-logo.jpg',
     apple: '/seno-logo.jpg',
   },
+  verification: {
+    google: 'PGRVMf0A5nTeiAmygn-917XwkSWKe8FjD2MWexa61p0',
+  },
 };
 
 import HoverFooter from '../components/HoverFooter';
