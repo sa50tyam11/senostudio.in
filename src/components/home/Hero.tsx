@@ -77,7 +77,7 @@ export const Hero: React.FC = () => {
         {/* Video Background */}
         <video
           ref={videoRef}
-          src="/hero.mp4"
+          src="/hero3.mp4"
           muted
           playsInline
           preload="auto"

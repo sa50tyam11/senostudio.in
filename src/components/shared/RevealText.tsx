@@ -58,6 +58,8 @@ interface RevealTextProps {
   splitBy?: SplitMode;
   /** Optional aria-label if the element needs an accessible label override */
   ariaLabel?: string;
+  style?: React.CSSProperties;
+  id?: string;
 }
 
 // ─── Sub-variants (inline to keep component self-contained) ───────
@@ -102,6 +104,8 @@ export const RevealText: React.FC<RevealTextProps> = ({
   once = true,
   splitBy = "word",
   ariaLabel,
+  style,
+  id,
 }) => {
   const prefersReduced = useReducedMotion();
   const tokens = splitBy === "line" ? text.split("\n") : text.split(" ");
@@ -117,6 +121,8 @@ export const RevealText: React.FC<RevealTextProps> = ({
         viewport={{ once, margin: "-80px" }}
         transition={{ duration: 0.3 }}
         aria-label={ariaLabel}
+        style={style}
+        id={id}
       >
         {text}
       </MotionTag>
@@ -136,6 +142,8 @@ export const RevealText: React.FC<RevealTextProps> = ({
       aria-label={ariaLabel ?? text}
       // Hide individual word spans from AT — aria-label carries the full text
       aria-hidden="false"
+      style={style}
+      id={id}
     >
       {tokens.map((token, i) => (
         <span
