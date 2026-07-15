@@ -61,13 +61,13 @@ export function CtaSection() {
                 </div>
                 <div className="flex-grow min-w-0">
                   <p className="text-[10px] md:text-xs text-gray-500 uppercase tracking-widest mb-1">Direct Line</p>
-                  <p className="text-base md:text-xl font-instrument italic text-white group-hover:text-emerald-100 transition-colors">Tap to Call Us</p>
+                  <p className="text-base md:text-xl font-instrument italic text-white group-hover:text-emerald-100 transition-colors">+91 76672 61838</p>
                 </div>
                 <ArrowUpRight className="w-4 h-4 md:w-5 md:h-5 text-gray-600 group-hover:text-emerald-400 transition-colors flex-shrink-0" />
               </a>
 
               <a
-                href="mailto:hiee.seno@gmail.com"
+                href="mailto:senowebstudio@gmail.com"
                 className="group flex items-center gap-4 md:gap-6 p-4 md:p-6 glass-panel rounded-xl md:rounded-2xl border border-white/5 bg-white/[0.02] hover:border-emerald-500/30 transition-all duration-300"
               >
                 <div className="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center flex-shrink-0 group-hover:bg-emerald-500/20 transition-colors">
@@ -75,7 +75,7 @@ export function CtaSection() {
                 </div>
                 <div className="flex-grow min-w-0">
                   <p className="text-[10px] md:text-xs text-gray-500 uppercase tracking-widest mb-1">Email Us</p>
-                  <p className="text-base md:text-xl font-instrument italic text-white group-hover:text-emerald-100 transition-colors truncate">Tap to Email Us</p>
+                  <p className="text-base md:text-xl font-instrument italic text-white group-hover:text-emerald-100 transition-colors truncate">senowebstudio@gmail.com</p>
                 </div>
                 <ArrowUpRight className="w-4 h-4 md:w-5 md:h-5 text-gray-600 group-hover:text-emerald-400 transition-colors flex-shrink-0" />
               </a>
@@ -86,7 +86,7 @@ export function CtaSection() {
                 </div>
                 <div>
                   <p className="text-[10px] md:text-xs text-gray-500 uppercase tracking-widest mb-1">Headquarters</p>
-                  <p className="text-base md:text-xl font-instrument italic text-white">India — Serving Worldwide</p>
+                  <p className="text-base md:text-xl font-instrument italic text-white">Muzaffarpur, Bihar, India</p>
                 </div>
               </div>
             </div>

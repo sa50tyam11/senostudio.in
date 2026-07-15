@@ -49,17 +49,17 @@ function HoverFooter() {
   const contactInfo = [
     {
       icon: <Mail size={18} className="text-emerald-400" />,
-      text: "Reach Out",
-      href: "mailto:hiee.seno@gmail.com",
+      text: "senowebstudio@gmail.com",
+      href: "mailto:senowebstudio@gmail.com",
     },
     {
       icon: <Phone size={18} className="text-emerald-400" />,
-      text: "Contact Us",
-      href: "#contact",
+      text: "+91 76672 61838",
+      href: "tel:+917667261838",
     },
     {
       icon: <MapPin size={18} className="text-emerald-400" />,
-      text: "India — Worldwide",
+      text: "Muzaffarpur, Bihar, India",
     },
   ];
 
@@ -72,7 +72,7 @@ function HoverFooter() {
   ];
 
   return (
-    <footer className="bg-[#0F0F11]/10 relative h-fit rounded-3xl overflow-hidden m-4 md:m-8">
+    <footer className="bg-[#0D0B17] relative h-fit rounded-3xl overflow-hidden m-4 md:m-8 border border-white/5 shadow-[0_8px_40px_rgba(0,0,0,0.12)]">
       <div className="max-w-7xl mx-auto p-8 md:p-14 z-40 relative">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8 lg:gap-16 pb-12">
           {/* Brand section */}
@@ -82,7 +82,7 @@ function HoverFooter() {
               <div>
                 <span className="text-white text-2xl font-instrument italic font-bold">
                   <span className="text-white">SE</span>
-                  <span className="text-emerald-400">NO</span>
+                  <span className="text-[#6C63FF]">NO</span>
                 </span>
                 <p className="text-[10px] text-gray-500 uppercase tracking-[0.2em] -mt-1">Web Studio</p>
               </div>

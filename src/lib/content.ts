@@ -58,7 +58,7 @@ export const hero = {
   headline: "Let's put a charge through your next idea.",
   subtext:
     "SENO Studio designs and engineers fast, precise web experiences for founders and teams who don't want to wait for their website to catch up to their ambition.",
-  contact: "hello@senostudio.in",
+  contact: "senowebstudio@gmail.com",
 };
 
 // ─── Services ─────────────────────────────────────────────────────
@@ -287,13 +287,13 @@ export const closingCta = {
   headline: "Ready to put a charge through your next build?",
   cta: "Start The Conversation",
   ctaHref: "/contact",
-  contact: "hello@senostudio.in",
+  contact: "senowebstudio@gmail.com",
 };
 
 // ─── Marquee ticker (Work page) ───────────────────────────────────
 
 export const MARQUEE_TEXT =
-  "SENO STUDIO · MUZAFFARPUR ✦ FULL-STACK WEB DESIGN ✦ BRAND SYSTEMS ✦ MVP ENGINEERING ✦ HIGH-SIGNAL BUILDS ✦";
+  "SENO STUDIO · MUZAFFARPUR, BIHAR ✦ FULL-STACK WEB DESIGN ✦ BRAND SYSTEMS ✦ MVP ENGINEERING ✦ HIGH-SIGNAL BUILDS ✦";
 
 // ─── Nav links ────────────────────────────────────────────────────
 

@@ -50,12 +50,10 @@ export const DiagonalMarquee: React.FC = () => {
           right: '-5%',
           transform: 'translateY(-50%) rotate(-4deg)',
           transformOrigin: 'center center',
-          backgroundColor: 'rgba(255, 255, 255, 0.65)',
-          backdropFilter: 'blur(12px)',
-          WebkitBackdropFilter: 'blur(12px)',
-          borderTop: '1px solid rgba(255, 255, 255, 0.8)',
-          borderBottom: '1px solid rgba(0, 0, 0, 0.05)',
-          boxShadow: '0 4px 24px -4px rgba(0, 0, 0, 0.03)',
+          backgroundColor: '#1A1A1A',
+          borderTop: '1px solid rgba(255, 255, 255, 0.1)',
+          borderBottom: '1px solid rgba(0, 0, 0, 0.2)',
+          boxShadow: '0 4px 24px -4px rgba(0, 0, 0, 0.3)',
           paddingTop: '14px',
           paddingBottom: '14px',
           zIndex: 2,
@@ -65,7 +63,7 @@ export const DiagonalMarquee: React.FC = () => {
           {[...ITEMS_ROW_1, ...ITEMS_ROW_1, ...ITEMS_ROW_1, ...ITEMS_ROW_1].map((item, i) => (
             <span
               key={i}
-              className={`shrink-0 px-5 text-sm font-medium tracking-[0.12em] uppercase ${item === '✦' ? 'text-[var(--color-electric-indigo)]/50' : 'text-[var(--color-ink)]'}`}
+              className={`shrink-0 px-5 text-sm font-medium tracking-[0.12em] uppercase ${item === '✦' ? 'text-[var(--color-muted)]' : 'text-white/90'}`}
               style={{ fontFamily: 'var(--font-body)' }}
             >
               {item}
@@ -83,12 +81,10 @@ export const DiagonalMarquee: React.FC = () => {
           right: '-5%',
           transform: 'translateY(-50%) rotate(4deg)',
           transformOrigin: 'center center',
-          backgroundColor: 'rgba(255, 255, 255, 0.65)',
-          backdropFilter: 'blur(12px)',
-          WebkitBackdropFilter: 'blur(12px)',
-          borderTop: '1px solid rgba(255, 255, 255, 0.8)',
-          borderBottom: '1px solid rgba(0, 0, 0, 0.05)',
-          boxShadow: '0 8px 32px -4px rgba(0, 0, 0, 0.04)',
+          backgroundColor: '#1A1A1A',
+          borderTop: '1px solid rgba(255, 255, 255, 0.1)',
+          borderBottom: '1px solid rgba(0, 0, 0, 0.2)',
+          boxShadow: '0 8px 32px -4px rgba(0, 0, 0, 0.4)',
           paddingTop: '14px',
           paddingBottom: '14px',
           zIndex: 3,
@@ -98,7 +94,7 @@ export const DiagonalMarquee: React.FC = () => {
           {[...ITEMS_ROW_2, ...ITEMS_ROW_2, ...ITEMS_ROW_2, ...ITEMS_ROW_2].map((item, i) => (
             <span
               key={i}
-              className={`shrink-0 px-5 text-sm font-medium tracking-[0.12em] uppercase ${item === '✦' ? 'text-[var(--color-electric-indigo)]/50' : 'text-[var(--color-ink)]'}`}
+              className={`shrink-0 px-5 text-sm font-medium tracking-[0.12em] uppercase ${item === '✦' ? 'text-[var(--color-muted)]' : 'text-white/90'}`}
               style={{ fontFamily: 'var(--font-body)' }}
             >
               {item}

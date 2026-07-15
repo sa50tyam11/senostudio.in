@@ -70,76 +70,103 @@ const About: React.FC = () => {
         {/* ────────────────────────────────────────────────────────
             1. HERO — Manifesto headline
         ──────────────────────────────────────────────────────── */}
+        {/* ────────────────────────────────────────────────────────
+            1. HERO — Manifesto headline (Redesigned Editorial Style)
+        ──────────────────────────────────────────────────────── */}
         <section
-          className="relative pt-32 pb-0 px-6 md:px-10 overflow-hidden"
+          className="relative pt-32 pb-20 px-6 md:px-10 overflow-hidden min-h-[90vh] flex flex-col justify-center border-b border-[var(--border-light)]"
           aria-labelledby="about-heading"
         >
-          {/* Background glow */}
-          <div
-            className="pointer-events-none absolute left-0 top-0 rounded-full blur-[160px] opacity-50"
+          {/* Subtle graph paper background grid */}
+          <div 
+            className="absolute inset-0 pointer-events-none opacity-[0.3]"
             style={{
-              width: '500px', height: '500px',
-              background: 'radial-gradient(circle, rgba(139,108,255,0.07) 0%, transparent 70%)',
+              backgroundImage: 'linear-gradient(to right, var(--border-light) 1px, transparent 1px), linear-gradient(to bottom, var(--border-light) 1px, transparent 1px)',
+              backgroundSize: '60px 60px'
             }}
-            aria-hidden="true"
-          />
-          <div
-            className="pointer-events-none absolute right-0 bottom-0 rounded-full blur-[120px] opacity-40"
-            style={{
-              width: '400px', height: '300px',
-              background: 'radial-gradient(circle, rgba(235,213,184,0.06) 0%, transparent 70%)',
-            }}
-            aria-hidden="true"
           />
 
-          <div className="relative mx-auto max-w-7xl">
-            <motion.div
-              variants={staggerContainer(0.1, 0.15)}
-              initial="hidden"
-              animate={anim}
-              className="flex flex-col gap-7"
-            >
-              <motion.div variants={fadeIn} className="flex items-center gap-3">
-                <span className="label-micro-primary tracking-[0.14em]">/ About SENO</span>
-              </motion.div>
-
-              {/* Large manifesto headline */}
-              <motion.div variants={fadeUp}>
-                <RevealText
-                  as="h1"
-                  text="We build the internet for founders who move at speed."
-                  className="font-display italic text-[clamp(2.4rem,6vw,5.5rem)] leading-[1.07] tracking-tight max-w-[18ch]"
-                  style={{ color: 'var(--color-ink)' } as React.CSSProperties}
-                  stagger={0.038}
-                  id="about-heading"
-                />
-              </motion.div>
-
-              {/* Sub-copy */}
-              <motion.p
-                variants={fadeUp}
-                className="text-base md:text-lg leading-relaxed max-w-[52ch]"
-                style={{ color: 'var(--color-muted)', fontFamily: 'var(--font-body)' }}
+          <div className="relative mx-auto max-w-[1440px] w-full flex flex-col lg:flex-row">
+            
+            {/* Vertical Studio Label */}
+            <div className="hidden lg:flex flex-col items-center justify-start w-12 border-r border-[var(--border-light)] pr-8 mr-8">
+              <span 
+                className="text-[10px] uppercase tracking-[0.4em] text-[var(--color-muted)] font-bold whitespace-nowrap mt-32"
+                style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
               >
-                SENO Studio is a small, focused web design and engineering practice based in
-                Muzaffarpur, India. We work with founders and teams who have a clear idea,
-                a tight timeline, and no patience for agencies that over-promise and
-                under-deliver.
-              </motion.p>
-            </motion.div>
+                S E N O ( S T U D I O )
+              </span>
+            </div>
 
-            {/* Hero signal line */}
-            <div className="mt-16 pointer-events-none" aria-hidden="true">
-              <SignalLine
-                height={60}
-                amplitude={20}
-                strokeWidth={1.2}
-                opacity={0.14}
-                speed={4}
-                showDot
-                animate={!prefersReduced}
-                drawOnMount
-              />
+            <div className="flex-1 flex flex-col justify-center">
+              
+              {/* Top horizontal divider & labels */}
+              <div className="flex items-center justify-between border-b border-[var(--border-light)] pb-5 mb-12 md:mb-20">
+                <div className="flex items-center gap-4">
+                  <div className="h-px w-10 bg-[var(--color-lime-green)] opacity-60" />
+                  <span className="label-micro-primary tracking-[0.25em] text-[var(--color-lime-green)] font-bold">
+                    / STUDIO PROFILE
+                  </span>
+                </div>
+                <span className="label-micro text-[9px] text-[var(--color-muted)] tracking-[0.15em] opacity-60">
+                  ESTABLISHED_V2023
+                </span>
+              </div>
+
+              <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-end">
+                {/* Left side: Massive Typography */}
+                <motion.div
+                  variants={staggerContainer(0.1, 0.15)}
+                  initial="hidden"
+                  animate={anim}
+                  className="flex-1 w-full"
+                >
+                  <motion.div variants={fadeUp}>
+                    <RevealText
+                      as="h1"
+                      text="We build the internet for founders who move at speed."
+                      className="font-display italic text-[clamp(4rem,9vw,9.5rem)] leading-[0.95] tracking-tight"
+                      style={{ color: 'var(--color-ink)' } as React.CSSProperties}
+                      stagger={0.03}
+                      id="about-heading"
+                    />
+                  </motion.div>
+                </motion.div>
+
+                {/* Right side: Structured Meta-data & Sub-copy */}
+                <motion.div 
+                  variants={fadeIn}
+                  initial="hidden"
+                  animate={anim}
+                  className="w-full lg:w-[420px] flex flex-col gap-10 shrink-0 lg:pb-6 relative z-10"
+                >
+                  <div className="grid grid-cols-2 gap-8 border-b border-[var(--border-light)] pb-8 relative">
+                    {/* Subtle structural connecting line mimicking the tree roots */}
+                    <div className="absolute top-1/2 -left-[200%] right-0 h-px bg-[var(--border-light)] -z-10 hidden lg:block" />
+                    
+                    <div className="flex flex-col gap-2 bg-[var(--color-electric-white)]">
+                      <span className="text-[9px] uppercase tracking-[0.2em] text-[var(--color-muted)]">Core Focus</span>
+                      <span className="font-display italic text-4xl md:text-5xl text-[var(--color-ink)] leading-none mt-1">01</span>
+                    </div>
+                    <div className="flex flex-col gap-2 bg-[var(--color-electric-white)]">
+                      <span className="text-[9px] uppercase tracking-[0.2em] text-[var(--color-muted)]">HQ</span>
+                      <span className="font-body font-bold text-xl text-[var(--color-ink)] uppercase tracking-widest leading-none mt-3">MUZAFFARPUR</span>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col gap-3 border-b border-[var(--border-light)] pb-8">
+                    <span className="text-[9px] uppercase tracking-[0.2em] text-[var(--color-muted)]">Architecture</span>
+                    <span className="text-[11px] font-bold text-[var(--color-lime-green)] uppercase tracking-[0.15em] mt-1 leading-relaxed">
+                      STRATEGY • ENGINEERING • HIGH-FIDELITY UI
+                    </span>
+                  </div>
+
+                  <p className="text-[14px] md:text-[15px] leading-[1.8] text-[var(--color-muted)]">
+                    SENO Studio is a small, focused web design and engineering practice based in Muzaffarpur, India. We work with founders and teams who have a clear idea, a tight timeline, and no patience for agencies that over-promise and under-deliver.
+                  </p>
+                </motion.div>
+              </div>
+
             </div>
           </div>
         </section>
@@ -234,35 +261,35 @@ const About: React.FC = () => {
         </section>
 
         {/* ────────────────────────────────────────────────────────
-            3. STATS STRIP
+            3. STATS STRIP (Redesigned Editorial Style)
         ──────────────────────────────────────────────────────── */}
         <section
-          className="py-16 px-6 md:px-10 border-y"
-          style={{ borderColor: 'var(--border-light)', backgroundColor: 'var(--color-ivory)' }}
+          className="border-y border-[var(--border-light)]"
+          style={{ backgroundColor: 'var(--color-surface)' }}
           aria-label="Key metrics"
         >
-          <div className="mx-auto max-w-7xl">
+          <div className="mx-auto max-w-[1440px]">
             <motion.div
               variants={staggerContainer(0.1, 0.05)}
               initial="hidden"
               whileInView={anim}
               viewport={{ once: true, margin: '-60px' }}
-              className="grid grid-cols-2 md:grid-cols-4 gap-8"
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 divide-y md:divide-y-0 lg:divide-x divide-[var(--border-light)] border-x border-[var(--border-light)]"
             >
               {STATS.map((stat, i) => (
                 <motion.div
                   key={stat.label}
                   variants={fadeUp}
-                  className="flex flex-col gap-1"
+                  className="flex flex-col gap-4 p-10 lg:p-14 hover:bg-[var(--color-electric-white)] transition-colors duration-500"
                 >
                   <span
-                    className="font-display italic text-4xl md:text-5xl leading-none tracking-tight"
-                    style={{ color: i % 2 === 0 ? 'var(--color-violet)' : 'var(--color-ink)' }}
+                    className="font-display italic text-5xl md:text-6xl leading-none tracking-tight"
+                    style={{ color: 'var(--color-ink)' }}
                   >
                     {stat.value}
                   </span>
                   <span
-                    className="text-sm leading-snug"
+                    className="text-[11px] font-bold uppercase tracking-[0.15em] leading-relaxed"
                     style={{ color: 'var(--color-muted)', fontFamily: 'var(--font-body)' }}
                   >
                     {stat.label}

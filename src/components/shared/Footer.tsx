@@ -139,14 +139,14 @@ export const Footer: React.FC = () => {
               Get in touch
             </span>
             <a
-              href="mailto:hello@senostudio.in"
+              href="mailto:senowebstudio@gmail.com"
               className="text-sm font-medium transition-colors duration-150 hover:text-[color:var(--color-violet)]"
               style={{
                 color: "var(--color-ink)",
                 fontFamily: "var(--font-body)",
               }}
             >
-              hello@senostudio.in
+              senowebstudio@gmail.com
             </a>
             <ul className="flex flex-col gap-3 mt-2" role="list">
               {socialLinks.map((s) => (
@@ -193,7 +193,7 @@ export const Footer: React.FC = () => {
               style={{ backgroundColor: "var(--color-gold)" }}
               aria-hidden="true"
             />
-            Signal active — Muzaffarpur, India
+            Based in Muzaffarpur, Bihar — Working PAN India
           </p>
         </motion.div>
       </div>

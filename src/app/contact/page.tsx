@@ -24,8 +24,9 @@ import { staggerContainer, fadeUp, fadeIn, listItem, EASE_SIGNAL } from '../../l
 // ─── Contact sidebar details ──────────────────────────────────────
 
 const CONTACT_DETAILS = [
-  { label: 'Email', value: 'hello@senostudio.in', href: 'mailto:hello@senostudio.in' },
-  { label: 'Location', value: 'Muzaffarpur, Bihar — India', href: null },
+  { label: 'Email', value: 'senowebstudio@gmail.com', href: 'mailto:senowebstudio@gmail.com' },
+  { label: 'Phone', value: '+91 76672 61838', href: 'tel:+917667261838' },
+  { label: 'Location', value: 'Muzaffarpur, Bihar, India', href: null },
   { label: 'Response time', value: '1–2 business days', href: null },
 ];
 
@@ -257,16 +258,24 @@ const Contact: React.FC = () => {
             >
               {[
                 {
-                  q: 'How quickly do you start?',
-                  a: 'Usually within 1–2 weeks of signing. We keep a short queue so we can actually commit.',
+                  q: 'What is your typical project timeline?',
+                  a: 'A standard website build takes 2–4 weeks from kickoff to launch. More complex web applications or custom MVP builds generally take 4–8 weeks, depending on features.',
                 },
                 {
-                  q: 'Do you work with early-stage founders?',
-                  a: 'Yes. Some of our best work has been with pre-revenue founders who have a clear vision and a tight timeline.',
+                  q: 'What is your pricing structure?',
+                  a: 'We offer transparent, fixed-price project rates based on the scope of work, as well as monthly retainer options for ongoing design and development partnerships.',
+                },
+                {
+                  q: 'Do you provide ongoing support after launch?',
+                  a: 'Yes. We offer post-launch maintenance, hosting support, and iterative development to ensure your digital product continues to perform and scale securely.',
+                },
+                {
+                  q: 'What technologies do you specialize in?',
+                  a: 'We build modern, high-performance web experiences using React, Next.js, Tailwind CSS, TypeScript, and robust backend architectures tailored to your specific needs.',
                 },
                 {
                   q: 'What if I just have an idea?',
-                  a: 'That\'s fine — the discovery call is for turning fuzzy ideas into clear briefs. No polished spec required.',
+                  a: 'That\'s fine — the discovery call is for turning fuzzy ideas into clear briefs. We partner with founders to map out the strategy before writing a single line of code.',
                 },
               ].map((item) => (
                 <motion.div key={item.q} variants={listItem} className="flex flex-col gap-2">

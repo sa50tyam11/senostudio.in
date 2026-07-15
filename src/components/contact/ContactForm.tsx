@@ -207,7 +207,7 @@ export const ContactForm: React.FC = () => {
       setErrorMsg(
         err instanceof Error
           ? err.message
-          : 'Something went wrong. Please email hello@senostudio.in directly.'
+          : 'Something went wrong. Please email senowebstudio@gmail.com directly.'
       );
     }
   }
@@ -440,7 +440,7 @@ export const ContactForm: React.FC = () => {
             }}
             role="alert"
           >
-            ⚡ {errorMsg || 'Something misfired. Please try again or email hello@senostudio.in.'}
+            ⚡ {errorMsg || 'Something misfired. Please try again or email senowebstudio@gmail.com.'}
           </motion.div>
         )}
       </AnimatePresence>

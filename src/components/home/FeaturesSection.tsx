@@ -22,10 +22,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 // ─── Projects data ─────────────────────────────────────────────────
 const PROJECTS = [
-  { year: '2024', title: 'Founder OS Dashboard', type: 'Full-Stack', href: '/work' },
-  { year: '2024', title: 'Signal Agency Site', type: 'Interface Design', href: '/work' },
-  { year: '2024', title: 'Volt Commerce MVP', type: 'MVP Sprint', href: '/work' },
-  { year: '2023', title: 'Halo Wear', type: 'Backend & Auth', href: '/work' },
+  { year: '2024', title: 'WATCH', type: 'E-commerce', href: '/work' },
+  { year: '2024', title: 'OPTICS', type: 'Full-Stack E-com', href: '/work' },
+  { year: '2024', title: 'E-STATE', type: 'Web Dev', href: '/work' },
+  { year: '2024', title: 'JEWELLERY', type: 'UI/UX', href: '/work' },
 ];
 
 // ─── Tech icons ────────────────────────────────────────────────────
@@ -34,7 +34,7 @@ const ROW2_ICONS = [Camera, Brush, Box, Wand2, Layout, Monitor, Type, Layers];
 
 // ─── Eyebrow label ────────────────────────────────────────────────
 const Eyebrow: React.FC<{ text: string }> = ({ text }) => (
-  <div className="flex items-center gap-1.5 mb-auto">
+  <div className="flex items-center gap-1.5">
     <Sparkles className="h-3 w-3 text-white/40 shrink-0" strokeWidth={1.5} />
     <span className="uppercase tracking-[0.2em] text-[10px] text-white/50 font-medium">
       {text}
@@ -136,16 +136,26 @@ export const FeaturesSection: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
 
           {/* ── Col 1: Featured Projects ── */}
-          <div className="relative rounded-2xl bg-[#111111] border border-white/[0.06] overflow-hidden flex flex-col p-5 md:p-6 min-h-[420px] lg:min-h-[520px]">
-            {/* Hero image / video */}
-            <div className="absolute inset-0">
-              <video
-                src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260507_150203_44a5bd32-516a-47ce-a077-8acbf9aa8991.mp4"
-                autoPlay loop muted playsInline
-                className="h-full w-full object-cover opacity-30"
+          <div className="relative rounded-2xl bg-[#0D0B17] border border-white/[0.06] overflow-hidden flex flex-col p-5 md:p-6 min-h-[420px] lg:min-h-[520px]">
+            {/* Background design */}
+            <div className="absolute inset-0 pointer-events-none">
+              {/* Ambient glow matching brand color */}
+              <div 
+                className="absolute inset-0"
+                style={{
+                  background: 'radial-gradient(circle at top right, rgba(108, 99, 255, 0.12), transparent 60%)'
+                }}
               />
-              {/* Gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#111111] via-[#111111]/60 to-transparent" />
+              {/* Noise texture for premium matte feel */}
+              <div 
+                className="absolute inset-0 opacity-[0.03]"
+                style={{
+                  backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+                  backgroundSize: '150px 150px'
+                }}
+              />
+              {/* Gradient overlay to ground the list */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0D0B17] via-[#0D0B17]/60 to-transparent" />
             </div>
 
             {/* Content */}
@@ -157,13 +167,13 @@ export const FeaturesSection: React.FC = () => {
                 <div className="inline-flex items-center gap-2 bg-white/[0.06] border border-white/10 rounded-full px-3 py-1">
                   <div className="h-1.5 w-1.5 rounded-full bg-[#6C63FF] animate-pulse" />
                   <span className="text-[11px] text-white/60 tracking-wide">
-                    {PROJECTS.length} Projects Delivered
+                    10+ Projects Delivered
                   </span>
                 </div>
               </div>
 
               {/* Project list */}
-              <div className="mt-auto">
+              <div className="mt-auto mb-2 md:mb-4">
                 {PROJECTS.map((p, i) => (
                   <ProjectRow key={p.title} {...p} index={i} />
                 ))}
@@ -313,7 +323,7 @@ export const FeaturesSection: React.FC = () => {
 
               <div className="relative z-10">
                 <p className="text-base md:text-lg font-medium text-white group-hover:text-[#6C63FF] transition-colors">
-                  hello@senostudio.in
+                  senowebstudio@gmail.com
                 </p>
                 <p className="mt-1 text-[12px] text-white/40">
                   Ready to put a charge through your next build?

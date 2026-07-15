@@ -2,19 +2,19 @@
  * api/contact.ts — Vercel Edge/Serverless function
  * ─────────────────────────────────────────────────────────────────
  * Handles POST /api/contact from the ContactForm.
- * Uses Resend to send the inquiry email to hello@senostudio.in.
+ * Uses Resend to send the inquiry email to senowebstudio@gmail.com.
  *
  * SETUP (one-time):
  *  1. npm install resend  (or add to package.json)
  *  2. Add RESEND_API_KEY to your .env.local and Vercel env vars
- *  3. Verify hello@senostudio.in as a sender in Resend dashboard
+ *  3. Verify senowebstudio@gmail.com as a sender in Resend dashboard
  *
  * The front-end form will POST JSON with:
  *  { name, email, company?, service?, message, budget? }
  *
  * This function:
  *  - Validates required fields
- *  - Sends a notification email to hello@senostudio.in
+ *  - Sends a notification email to senowebstudio@gmail.com
  *  - Sends a confirmation email to the user
  *  - Returns { ok: true } or { ok: false, error: string }
  * ─────────────────────────────────────────────────────────────────
@@ -93,7 +93,7 @@ function notificationHtml(p: ContactPayload): string {
           <tr>
             <td style="padding:20px 32px;background:#FAFAFA;border-top:1px solid rgba(10,10,10,0.06);">
               <p style="margin:0;font-size:11px;color:#6B7280;letter-spacing:0.08em;text-transform:uppercase;">
-                SENO Studio · hello@senostudio.in · Muzaffarpur, India
+                SENO Studio · senowebstudio@gmail.com · Muzaffarpur, Bihar, India
               </p>
             </td>
           </tr>
@@ -133,7 +133,7 @@ function confirmationHtml(name: string): string {
         <tr>
           <td style="padding:20px 40px;border-top:1px solid rgba(10,10,10,0.06);text-align:center;">
             <p style="margin:0;font-size:11px;color:#6B7280;letter-spacing:0.08em;text-transform:uppercase;">
-              SENO Studio · hello@senostudio.in
+              SENO Studio · senowebstudio@gmail.com
             </p>
           </td>
         </tr>
@@ -182,7 +182,7 @@ export async function POST(req: NextRequest) {
     // Send notification to SENO
     await resend.emails.send({
       from: 'SENO Studio <noreply@senostudio.in>',
-      to: ['hello@senostudio.in'],
+      to: ['senowebstudio@gmail.com'],
       replyTo: payload.email,
       subject: `New Inquiry from ${payload.name}${payload.service ? ` — ${payload.service}` : ''}`,
       html: notificationHtml(payload),
@@ -190,7 +190,7 @@ export async function POST(req: NextRequest) {
 
     // Send confirmation to the user
     await resend.emails.send({
-      from: 'SENO Studio <hello@senostudio.in>',
+      from: 'SENO Studio <senowebstudio@gmail.com>',
       to: [payload.email],
       subject: 'Signal received — SENO Studio',
       html: confirmationHtml(payload.name),
@@ -200,7 +200,7 @@ export async function POST(req: NextRequest) {
   } catch (err) {
     console.error('Resend error:', err);
     return NextResponse.json(
-      { ok: false, error: 'Failed to send message. Please try hello@senostudio.in directly.' },
+      { ok: false, error: 'Failed to send message. Please try senowebstudio@gmail.com directly.' },
       { status: 500 }
     );
   }

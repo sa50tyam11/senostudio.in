@@ -141,7 +141,7 @@ export const Hero: React.FC = () => {
               </a>
               
               <a 
-                href="mailto:hello@senostudio.in" 
+                href="/contact" 
                 className="group flex items-center gap-3 text-[#FFF9F0] hover:text-[var(--color-electric-indigo)] transition-colors"
                 style={{ textShadow: '0 2px 10px rgba(0,0,0,0.6)' }}
               >

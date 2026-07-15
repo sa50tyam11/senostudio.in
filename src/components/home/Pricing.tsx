@@ -304,10 +304,10 @@ export const Pricing: React.FC = () => {
           <p className="label-micro" style={{ color: 'var(--color-muted)' }}>
             All tiers include a free discovery call — no commitment.{' '}
             <a
-              href="mailto:hello@senostudio.in"
+              href="mailto:senowebstudio@gmail.com"
               className="underline transition-colors hover:text-[color:var(--color-violet)]"
             >
-              hello@senostudio.in
+              senowebstudio@gmail.com
             </a>
           </p>
         </motion.div>
