@@ -149,8 +149,8 @@ const About: React.FC = () => {
                       <span className="font-display italic text-4xl md:text-5xl text-[var(--color-ink)] leading-none mt-1">01</span>
                     </div>
                     <div className="flex flex-col gap-2 bg-[var(--color-electric-white)]">
-                      <span className="text-[9px] uppercase tracking-[0.2em] text-[var(--color-muted)]">HQ</span>
-                      <span className="font-body font-bold text-xl text-[var(--color-ink)] uppercase tracking-widest leading-none mt-3">MUZAFFARPUR</span>
+                      <span className="text-[9px] uppercase tracking-[0.2em] text-[var(--color-muted)]">Presence</span>
+                      <span className="font-body font-bold text-xl text-[var(--color-ink)] uppercase tracking-widest leading-none mt-3">PAN INDIA</span>
                     </div>
                   </div>
 
@@ -162,7 +162,7 @@ const About: React.FC = () => {
                   </div>
 
                   <p className="text-[14px] md:text-[15px] leading-[1.8] text-[var(--color-muted)]">
-                    SENO Studio is a small, focused web design and engineering practice based in Muzaffarpur, India. We work with founders and teams who have a clear idea, a tight timeline, and no patience for agencies that over-promise and under-deliver.
+                    SENO Studio is a small, focused web design and engineering practice operating across India. We work with founders and teams who have a clear idea, a tight timeline, and no patience for agencies that over-promise and under-deliver.
                   </p>
                 </motion.div>
               </div>

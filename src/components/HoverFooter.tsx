@@ -59,7 +59,7 @@ function HoverFooter() {
     },
     {
       icon: <MapPin size={18} className="text-emerald-400" />,
-      text: "Muzaffarpur, Bihar, India",
+      text: "Operating across India",
     },
   ];
 
