@@ -15,10 +15,10 @@ import { DiagonalMarquee } from '../components/home/DiagonalMarquee';
 const Home: React.FC = () => {
   return (
     <main id="home-main" className="relative">
-      <div data-nav-theme="light">
+      <div data-nav-theme="light" id="home">
         <Hero />
       </div>
-      <div data-nav-theme="dark">
+      <div data-nav-theme="dark" id="work">
         <FeaturesSection />
       </div>
       
@@ -26,13 +26,17 @@ const Home: React.FC = () => {
 
       {/* Stacked PRD Layout */}
       <div data-nav-theme="light" className="relative z-10 w-full overflow-clip bg-[var(--color-electric-white)]">
-        <ServicesSection />
-        <ProcessSection />
+        <div id="services">
+          <ServicesSection />
+        </div>
+        <div id="process">
+          <ProcessSection />
+        </div>
         <WhyUsSection />
 
         <PricingSection />
         <TechStackSection />
-        <div data-nav-theme="dark">
+        <div data-nav-theme="dark" id="contact">
           <ClosingCTA />
         </div>
       </div>

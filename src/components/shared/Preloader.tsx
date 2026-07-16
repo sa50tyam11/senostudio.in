@@ -23,7 +23,7 @@ const SESSION_KEY = "seno_preloader_seen";
 
 interface PreloaderProps {
   /** Called after the exit animation fully completes */
-  onComplete: () => void;
+  onComplete?: () => void;
   /** Override dwell duration in ms before exit begins (default: 1600) */
   dwellMs?: number;
 }

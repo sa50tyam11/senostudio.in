@@ -4,6 +4,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { SectionHeader } from '../shared/SectionHeader';
 import { useRouter } from 'next/navigation';
+import SpecularButton from '../shared/SpecularButton';
 
 const tiers = [
   {
@@ -115,16 +116,19 @@ export const PricingSection: React.FC = () => {
                 ))}
               </ul>
 
-              <button
+              <SpecularButton
+                size="md"
+                radius={24}
+                className="w-full font-bold uppercase tracking-widest text-xs"
+                tint={tier.isPopular ? "#34d399" : "#111111"}
+                tintOpacity={1}
+                textColor={tier.isPopular ? "#000000" : "#ffffff"}
+                lineColor={tier.isPopular ? "#000000" : "#ffffff"}
+                baseColor={tier.isPopular ? "#064e3b" : "#000000"}
                 onClick={() => router.push(`/contact?tier=${tier.id}`)}
-                className={`w-full py-4 rounded-full font-bold uppercase tracking-widest text-xs transition-colors ${
-                  tier.isPopular
-                    ? 'bg-emerald-400 text-black hover:bg-emerald-300'
-                    : 'bg-[var(--color-ink)] text-white hover:bg-[var(--color-electric-indigo)]'
-                }`}
               >
                 {tier.cta}
-              </button>
+              </SpecularButton>
             </motion.div>
           ))}
         </div>

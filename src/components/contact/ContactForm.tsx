@@ -23,6 +23,7 @@ import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { SignalLine } from '../shared/SignalLine';
 import { services } from '../../lib/content';
 import { staggerContainer, listItem, fadeUp, EASE_SIGNAL } from '../../lib/motion-variants';
+import SpecularButton from '../shared/SpecularButton';
 
 // ─── Types ────────────────────────────────────────────────────────
 
@@ -447,26 +448,20 @@ export const ContactForm: React.FC = () => {
 
       {/* ── Submit button ── */}
       <motion.div variants={listItem}>
-        <motion.button
+        <SpecularButton
           type="submit"
           disabled={status === 'submitting'}
-          className="inline-flex w-full items-center justify-center gap-2 rounded-full py-4 text-sm font-medium text-white"
-          style={{
-            backgroundColor: 'var(--color-violet)',
-            fontFamily: 'var(--font-body)',
-            opacity: status === 'submitting' ? 0.7 : 1,
-            cursor: status === 'submitting' ? 'not-allowed' : 'pointer',
-          }}
-          whileHover={prefersReduced || status === 'submitting' ? {} : {
-            scale: 1.02,
-            boxShadow: '0 12px 36px -8px rgba(139,108,255,0.45)',
-          }}
-          whileTap={prefersReduced || status === 'submitting' ? {} : { scale: 0.98 }}
-          transition={{ duration: 0.18, ease: EASE_SIGNAL }}
-          aria-busy={status === 'submitting'}
+          className="w-full text-sm font-medium"
+          size="lg"
+          radius={24}
+          tint="#6C63FF"
+          tintOpacity={1}
+          textColor="#ffffff"
+          lineColor="#ffffff"
+          baseColor="#4b45b2"
         >
           {status === 'submitting' ? (
-            <>
+            <div className="flex items-center justify-center gap-2">
               <motion.span
                 animate={{ rotate: 360 }}
                 transition={{ duration: 0.8, repeat: Infinity, ease: 'linear' }}
@@ -474,9 +469,9 @@ export const ContactForm: React.FC = () => {
                 aria-hidden="true"
               />
               Transmitting...
-            </>
+            </div>
           ) : (
-            <>
+            <div className="flex items-center justify-center gap-2">
               Send the Brief
               <motion.span
                 style={{ color: 'var(--color-gold)' }}
@@ -486,9 +481,9 @@ export const ContactForm: React.FC = () => {
               >
                 ✦
               </motion.span>
-            </>
+            </div>
           )}
-        </motion.button>
+        </SpecularButton>
       </motion.div>
 
       {/* ── Privacy note ── */}

@@ -6,7 +6,7 @@ export function Footer() {
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
         {/* Left — copyright */}
         <div className="text-white/50 text-sm md:w-1/3">
-          &copy; 2026 SENO Web Studio. All rights reserved.
+          &copy; 2024 SENO Web Studio. All rights reserved.
         </div>
 
         {/* Center — logo */}

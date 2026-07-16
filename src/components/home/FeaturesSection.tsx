@@ -19,6 +19,8 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
+import CursorGrid from '../shared/CursorGrid';
+import SpecularButton from '../shared/SpecularButton';
 
 // ─── Projects data ─────────────────────────────────────────────────
 const PROJECTS = [
@@ -91,18 +93,36 @@ const ProjectRow: React.FC<{
 export const FeaturesSection: React.FC = () => {
   return (
     <section
-      className="relative bg-[#0a0a0a] text-white font-body overflow-hidden"
+      className="relative bg-[#F7F6F0] text-black font-body overflow-hidden"
       style={{ fontFamily: 'var(--font-body)' }}
     >
-      {/* Subtle grid texture */}
-      <div
-        className="pointer-events-none absolute inset-0"
-        style={{
-          backgroundImage: 'radial-gradient(circle at 20% 50%, rgba(108,99,255,0.04) 0%, transparent 60%), radial-gradient(circle at 80% 20%, rgba(108,99,255,0.03) 0%, transparent 50%)',
-        }}
-      />
+      {/* Background Soft Glows (Light theme friendly) */}
+      <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none opacity-60">
+        <div className="w-[800px] h-[800px] bg-[#6C63FF]/5 blur-[100px] rounded-[100%] scale-150 transform -translate-y-10"></div>
+        <div className="absolute w-[400px] h-[700px] bg-[#6C63FF]/10 blur-[60px] rounded-[40%] top-0 left-[20%] transform rotate-12"></div>
+        <div className="absolute w-[300px] h-[500px] bg-[#84cc16]/10 blur-[70px] rounded-[30%] bottom-0 right-[20%] transform -rotate-12"></div>
+      </div>
 
-      <div className="relative px-4 sm:px-6 md:px-10 lg:px-14 py-16 sm:py-20 md:py-24 lg:py-28 max-w-[1440px] mx-auto">
+      {/* Interactive Cursor Grid Background */}
+      <div className="absolute inset-0 z-0 opacity-80 pointer-events-auto">
+        <CursorGrid
+          cellSize={80}
+          color="#6C63FF"
+          radius={200}
+          falloff="smooth"
+          holdTime={600}
+          fadeDuration={1000}
+          lineWidth={1.5}
+          maxOpacity={0.6}
+          fillOpacity={0.05}
+          gridOpacity={0.05}
+          cellRadius={0}
+          clickPulse={true}
+          pulseSpeed={800}
+        />
+      </div>
+
+      <div className="relative z-10 px-4 sm:px-6 md:px-10 lg:px-14 py-16 sm:py-20 md:py-24 lg:py-28 max-w-[1440px] mx-auto">
 
         {/* ── Header ── */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 md:mb-14">
@@ -114,22 +134,30 @@ export const FeaturesSection: React.FC = () => {
                 Featured Work
               </span>
             </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] leading-[1.1] font-normal tracking-tight text-white">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] leading-[1.1] font-normal tracking-tight text-black">
               High-Signal<br />
-              <span className="text-white/35">Builds.</span>
+              <span className="text-black/40">Builds.</span>
             </h2>
-            <p className="mt-4 text-sm md:text-[15px] leading-[1.7] text-white/50 max-w-lg">
+            <p className="mt-4 text-sm md:text-[15px] leading-[1.7] text-black/60 max-w-lg">
               Precise web experiences for founders and teams who can&apos;t afford to wait. We pick up the real signal before writing a single line of code.
             </p>
           </div>
 
-          <Link
-            href="/contact"
-            className="liquid-glass rounded-full px-5 sm:px-6 py-2.5 sm:py-3 text-sm font-medium text-white/80 hover:text-white transition-colors inline-flex items-center gap-2 self-start md:self-auto shrink-0"
+          <SpecularButton
+            size="md"
+            radius={24}
+            tint="#000000"
+            tintOpacity={0.05}
+            textColor="#000000"
+            lineColor="#6C63FF"
+            baseColor="#cccccc"
+            onClick={() => window.location.href = '/contact'}
           >
-            Start a Project
-            <ArrowUpRight className="h-3.5 w-3.5" strokeWidth={1.5} />
-          </Link>
+            <div className="flex items-center gap-2 text-sm font-medium">
+              Start a Project
+              <ArrowUpRight className="h-3.5 w-3.5" strokeWidth={1.5} />
+            </div>
+          </SpecularButton>
         </div>
 
         {/* ── 3-column grid ── */}

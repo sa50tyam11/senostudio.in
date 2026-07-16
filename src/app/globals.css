@@ -53,6 +53,31 @@
     font-family: var(--font-barlow);
   }
 
+  .font-handwritten {
+    font-family: 'Caveat', cursive;
+  }
+
+  .text-3d-logo {
+    text-shadow: 
+      2px 2px 0px #03040c,
+      4px 4px 0px #03040c,
+      6px 6px 0px #03040c,
+      8px 8px 0px #03040c,
+      10px 10px 0px #03040c,
+      12px 12px 0px #03040c,
+      14px 14px 0px #03040c,
+      16px 16px 0px #03040c,
+      18px 18px 0px #03040c,
+      20px 20px 0px #03040c,
+      22px 22px 0px #03040c,
+      24px 24px 0px #03040c,
+      26px 26px 0px #03040c,
+      28px 28px 0px #03040c,
+      30px 30px 0px #03040c,
+      32px 32px 0px #03040c,
+      34px 34px 25px rgba(0,0,0,0.8);
+  }
+
   /* Micro-label — eyebrow tags, ID badges */
   .label-micro {
     font-family: var(--font-body);

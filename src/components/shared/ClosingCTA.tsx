@@ -2,6 +2,7 @@
 import React from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
+import SpecularButton from "./SpecularButton";
 import { closingCta } from "../../lib/content";
 import {
   fadeUp,
@@ -56,12 +57,14 @@ export const ClosingCTA: React.FC = () => {
             </motion.h2>
 
             <motion.div variants={fadeUp} className="mt-4">
-              <a 
-                href="/contact" 
-                className="inline-flex items-center justify-center bg-white text-black px-8 py-4 rounded-full text-sm font-semibold hover:bg-gray-200 transition-colors shadow-lg"
+              <SpecularButton
+                size="lg"
+                radius={24}
+                autoAnimate
+                onClick={() => window.location.href = '/contact'}
               >
                 Get started
-              </a>
+              </SpecularButton>
             </motion.div>
           </div>
 
@@ -122,12 +125,19 @@ export const ClosingCTA: React.FC = () => {
               </div>
 
               {/* Card Button */}
-              <a 
-                href="/contact" 
-                className="flex items-center justify-center w-full bg-emerald-400 text-black px-6 py-3.5 rounded-2xl text-sm font-semibold hover:bg-emerald-300 transition-colors"
+              <SpecularButton
+                size="lg"
+                className="w-full"
+                radius={16}
+                tint="#34d399"
+                tintOpacity={0.1}
+                textColor="#34d399"
+                lineColor="#34d399"
+                baseColor="#064e3b"
+                onClick={() => window.location.href = '/contact'}
               >
                 Book a free call
-              </a>
+              </SpecularButton>
             </div>
           </motion.div>
 

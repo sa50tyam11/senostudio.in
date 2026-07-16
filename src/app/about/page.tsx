@@ -109,7 +109,7 @@ const About: React.FC = () => {
                   </span>
                 </div>
                 <span className="label-micro text-[9px] text-[var(--color-muted)] tracking-[0.15em] opacity-60">
-                  ESTABLISHED_V2023
+                  ESTABLISHED_SEPT 2024
                 </span>
               </div>
 

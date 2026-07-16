@@ -171,8 +171,8 @@ function HoverFooter() {
       </div>
 
       {/* Text hover effect — massive "SENO" text */}
-      <div className="lg:flex hidden h-[30rem] -mt-52 -mb-36">
-        <TextHoverEffect text="SENO" className="z-50" />
+      <div className="lg:flex hidden w-full items-center justify-center -mt-8 pb-4">
+        <TextHoverEffect text="SENO" className="z-50 w-full" />
       </div>
 
       <FooterBackgroundGradient />
