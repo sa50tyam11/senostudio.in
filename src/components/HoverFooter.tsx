@@ -9,6 +9,7 @@ import {
   MessageCircle,
   Code2,
 } from "lucide-react";
+import Link from "next/link";
 
 const InstagramIcon = () => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -25,21 +26,20 @@ function HoverFooter() {
     {
       title: "Services",
       links: [
-        { label: "Web Development", href: "#services" },
-        { label: "UI/UX Design", href: "#services" },
-        { label: "Full-Stack Solutions", href: "#services" },
-        { label: "Deployment & Scaling", href: "#services" },
+        { label: "Web Development", href: "/services" },
+        { label: "UI/UX Design", href: "/services" },
+        { label: "Full-Stack Solutions", href: "/services" },
+        { label: "Deployment & Scaling", href: "/services" },
       ],
     },
     {
       title: "Quick Links",
       links: [
-        { label: "Selected Work", href: "#work" },
-        { label: "Our Process", href: "#process" },
-        { label: "About Us", href: "#about-section" },
+        { label: "Selected Work", href: "/work" },
+        { label: "About Us", href: "/about" },
         {
           label: "Start a Project",
-          href: "#contact",
+          href: "/contact",
           pulse: true,
         },
       ],
@@ -101,12 +101,12 @@ function HoverFooter() {
               <ul className="space-y-3">
                 {section.links.map((link) => (
                   <li key={link.label} className="relative">
-                    <a
+                    <Link
                       href={link.href}
                       className="text-gray-400 hover:text-emerald-400 transition-colors text-sm font-light"
                     >
                       {link.label}
-                    </a>
+                    </Link>
                     {link.pulse && (
                       <span className="absolute top-1 -right-3 w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
                     )}
@@ -145,7 +145,6 @@ function HoverFooter() {
 
         <hr className="border-t border-white/10 my-8" />
 
-        {/* Footer bottom */}
         <div className="flex flex-col md:flex-row justify-between items-center text-sm space-y-4 md:space-y-0">
           {/* Social icons */}
           <div className="flex space-x-6 text-gray-400">
@@ -163,10 +162,16 @@ function HoverFooter() {
             ))}
           </div>
 
-          {/* Copyright */}
-          <p className="text-gray-500 text-center md:text-left text-xs tracking-wide">
-            &copy; {new Date().getFullYear()} SENO Web Studio. All rights reserved.
-          </p>
+          {/* Copyright & Legal */}
+          <div className="flex flex-col md:flex-row items-center md:items-end gap-2 md:gap-6">
+            <div className="flex gap-4 text-xs">
+              <Link href="/privacy" className="text-gray-500 hover:text-emerald-400 transition-colors">Privacy Policy</Link>
+              <Link href="/terms" className="text-gray-500 hover:text-emerald-400 transition-colors">Terms & Security</Link>
+            </div>
+            <p className="text-gray-500 text-center md:text-right text-xs tracking-wide">
+              &copy; {new Date().getFullYear()} SENO Web Studio. All rights reserved.
+            </p>
+          </div>
         </div>
       </div>
 
