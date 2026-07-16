@@ -10,6 +10,7 @@ import {
   Code2,
 } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 const InstagramIcon = () => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -78,7 +79,7 @@ function HoverFooter() {
           {/* Brand section */}
           <div className="flex flex-col space-y-4">
             <div className="flex items-center space-x-3">
-              <img src="/seno-logo.jpg" alt="SENO" className="h-10 w-10 rounded-lg object-cover" />
+              <Image src="/seno-logo.jpg" alt="SENO" width={40} height={40} className="h-10 w-10 rounded-lg object-cover" />
               <div>
                 <span className="text-white text-2xl font-instrument italic font-bold">
                   <span className="text-white">SE</span>

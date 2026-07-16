@@ -2,6 +2,7 @@
 
 import React, { useState, useRef } from 'react';
 import { motion, useMotionValue, useSpring, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
 
 const services = [
   {
@@ -67,10 +68,11 @@ export const ServicesSection: React.FC = () => {
             style={{ x, y }}
             className="fixed top-0 left-0 w-[260px] h-[360px] pointer-events-none z-50 rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.3)] hidden md:block"
           >
-            <img 
+            <Image 
               src={services[hoveredIndex].image} 
               alt={services[hoveredIndex].name}
-              className="w-full h-full object-cover"
+              fill
+              className="object-cover"
             />
           </motion.div>
         )}

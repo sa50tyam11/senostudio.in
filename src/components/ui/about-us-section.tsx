@@ -13,6 +13,7 @@ import {
   Zap,
 } from "lucide-react"
 import { motion, useScroll, useTransform, useInView } from "framer-motion"
+import Image from "next/image"
 
 export default function AboutUsSection() {
   const sectionRef = useRef<HTMLDivElement>(null)
@@ -200,9 +201,11 @@ export default function AboutUsSection() {
                 transition={{ duration: 0.8, delay: 0.3 }}
                 whileHover={{ scale: 1.03, transition: { duration: 0.3 } }}
               >
-                <img
+                <Image
                   src="/skjsc.png"
                   alt="Developer Workstation"
+                  width={400}
+                  height={500}
                   className="w-full h-full min-h-[400px] object-cover mix-blend-luminosity hover:mix-blend-normal transition-all duration-700"
                 />
                 <motion.div

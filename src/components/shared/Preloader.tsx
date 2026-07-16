@@ -169,4 +169,17 @@ export function usePreloader(): [boolean, () => void] {
   return [show, dismiss];
 }
 
+export function ClientPreloader() {
+  const [show, dismiss] = usePreloader();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted || !show) return null;
+
+  return <Preloader onComplete={dismiss} />;
+}
+
 export default Preloader;

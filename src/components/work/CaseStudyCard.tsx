@@ -32,6 +32,7 @@ import React from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { SignalLine } from '../shared/SignalLine';
 import { cardHoverLift, EASE_SIGNAL } from '../../lib/motion-variants';
+import Image from 'next/image';
 
 // ─── Type ─────────────────────────────────────────────────────────
 
@@ -56,12 +57,11 @@ const CardImage: React.FC<{ src?: string; title: string }> = ({ src, title }) =>
     aria-hidden="true"
   >
     {src ? (
-      <img
+      <Image
         src={src}
         alt={`${title} project preview`}
-        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
-        loading="lazy"
-        decoding="async"
+        fill
+        className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
       />
     ) : (
       /* Gradient placeholder — Indigo to deep Indigo */

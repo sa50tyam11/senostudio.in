@@ -2,6 +2,7 @@ import React from 'react';
 import { Button } from './ui/Button';
 import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react'; 
+import Image from 'next/image';
 
 export function PortfolioSection() {
   const projects = [
@@ -98,10 +99,11 @@ function ProjectCaseStudy({ project, isEven }: { project: any, isEven: boolean }
             <motion.div 
               className="absolute inset-0 bg-emerald-500/20 mix-blend-overlay z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-700"
             />
-            <img 
+            <Image 
               src={project.img} 
               alt={project.title}
-              className="w-full h-full object-cover grayscale-[0.3] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]"
+              fill
+              className="object-cover grayscale-[0.3] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]"
             />
             <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/80 via-black/30 to-transparent z-10" />
             

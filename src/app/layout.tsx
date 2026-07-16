@@ -43,6 +43,7 @@ export const metadata: Metadata = {
 import HoverFooter from '../components/HoverFooter';
 import { WhatsAppWidget } from '../components/shared/WhatsAppWidget';
 import { FloatingNav } from '../components/shared/FloatingNav';
+import { ClientPreloader } from '../components/shared/Preloader';
 
 export default function RootLayout({
   children,
@@ -53,7 +54,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="antialiased">
         <SmoothScroll>
-          <Preloader />
+          <ClientPreloader />
           <FloatingNav />
           {children}
           <HoverFooter />
