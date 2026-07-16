@@ -57,7 +57,7 @@ export const hero = {
   eyebrow: "/ SENO STUDIO",
   headline: "Let's put a charge through your next idea.",
   subtext:
-    "SENO Studio is the best web development company in Bihar. We specialize in AI automation, startup website development, and creating SEO friendly web experiences for founders.",
+    "SENO Studio is a Pan India creative agency. We specialize in web development, brand identity, social media marketing, and video production — building digital presence for startups and businesses across India.",
   contact: "senowebstudio@gmail.com",
 };
 
@@ -293,7 +293,7 @@ export const closingCta = {
 // ─── Marquee ticker (Work page) ───────────────────────────────────
 
 export const MARQUEE_TEXT =
-  "SENO STUDIO ✦ BEST WEB DEVELOPMENT COMPANY IN BIHAR ✦ AI AUTOMATION ✦ STARTUP WEBSITE DEVELOPMENT ✦ DIGITAL MARKETING ✦ LOGO BRANDING ✦ WEBSITE REDESIGN SERVICES ✦ WEBSITE DESIGN SERVICES NEAR ME ✦";
+  "SENO STUDIO ✦ PAN INDIA CREATIVE AGENCY ✦ WEB DEVELOPMENT ✦ BRAND IDENTITY ✦ SOCIAL MEDIA MARKETING ✦ VIDEO EDITING ✦ AI AUTOMATION ✦ STARTUP WEBSITE DESIGN ✦ DIGITAL MARKETING ✦ LOGO BRANDING ✦";
 
 // ─── Nav links ────────────────────────────────────────────────────
 

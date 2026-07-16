@@ -85,8 +85,8 @@ export function CtaSection() {
                   <MapPin className="w-5 h-5 md:w-6 md:h-6 text-emerald-400" />
                 </div>
                 <div>
-                  <p className="text-[10px] md:text-xs text-gray-500 uppercase tracking-widest mb-1">Headquarters</p>
-                  <p className="text-base md:text-xl font-instrument italic text-white">Muzaffarpur, Bihar, India</p>
+                  <p className="text-[10px] md:text-xs text-gray-500 uppercase tracking-widest mb-1">Pan India — Remote First</p>
+                  <p className="text-base md:text-xl font-instrument italic text-white">Mumbai · Delhi · Bengaluru & Everywhere</p>
                 </div>
               </div>
             </div>

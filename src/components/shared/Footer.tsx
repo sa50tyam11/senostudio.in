@@ -193,7 +193,7 @@ export const Footer: React.FC = () => {
               style={{ backgroundColor: "var(--color-gold)" }}
               aria-hidden="true"
             />
-            Based in Muzaffarpur, Bihar — Working PAN India
+            Serving Clients Pan India — Mumbai · Delhi · Bengaluru & Beyond
           </p>
         </motion.div>
       </div>

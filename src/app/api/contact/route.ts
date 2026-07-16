@@ -93,7 +93,7 @@ function notificationHtml(p: ContactPayload): string {
           <tr>
             <td style="padding:20px 32px;background:#FAFAFA;border-top:1px solid rgba(10,10,10,0.06);">
               <p style="margin:0;font-size:11px;color:#6B7280;letter-spacing:0.08em;text-transform:uppercase;">
-                SENO Studio · senowebstudio@gmail.com · Muzaffarpur, Bihar, India
+                SENO Studio · senowebstudio@gmail.com · Pan India 🇮🇳
               </p>
             </td>
           </tr>

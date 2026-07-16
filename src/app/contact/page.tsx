@@ -26,7 +26,7 @@ import { staggerContainer, fadeUp, fadeIn, listItem, EASE_SIGNAL } from '../../l
 const CONTACT_DETAILS = [
   { label: 'Email', value: 'senowebstudio@gmail.com', href: 'mailto:senowebstudio@gmail.com' },
   { label: 'Phone', value: '+91 76672 61838', href: 'tel:+917667261838' },
-  { label: 'Location', value: 'Muzaffarpur, Bihar, India', href: null },
+  { label: 'Location', value: 'Pan India — Remote First 🇮🇳', href: null },
   { label: 'Response time', value: '1–2 business days', href: null },
 ];
 
